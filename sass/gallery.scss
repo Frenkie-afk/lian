@@ -1,0 +1,101 @@
+.gallery {
+  padding: 33px 0 73px;
+  background-color: #fafafa;
+  text-align: center;
+  #tabs {
+    font-family: Roboto,sans-serif;
+    font-weight: $font_bold;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+  }
+  .ui-tabs-nav {
+    display: flex;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    border-top: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
+    padding: 15px 0;
+    margin-bottom: 30px;
+  }
+  .ui-tabs-tab {
+    background-color: transparent;
+    margin: 0 !important;
+    border: none;
+    border-right: 1px solid #e1e1e1;
+    transform: skewX(-25deg);
+    &:hover {
+      a {
+        color: $black_color !important;
+      }
+    }
+  }
+  .ui-tabs-anchor {
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: $font_bold;
+    transform: skewX(25deg);
+    padding: 10px 17px !important;
+    transition: .3s;
+  }
+  .ui-state-default {
+    a {
+      color: $grey_color;
+    }
+  }
+  .ui-state-active {
+    a {
+      color: $black_color;
+    }
+  }
+  .ui-tabs-panel {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0;
+    span {
+      position: relative;
+      display: block;
+      margin-bottom: 30px;
+      transition: .3s;
+      background-color: rgba(0, 0, 0, 0.84);
+      &:hover {
+        &:before {
+          content: "";
+          position: absolute;
+          display: block;
+          width: 40px;
+          height: 2px;
+          background-color: #cacaca;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        &:after {
+          @extend :before;
+          height: 40px;
+          width: 2px;
+        }
+        img {
+          opacity: 30%;
+        }
+      }
+    }
+  }
+  .btn {
+    display: inline-block;
+    font-size: 13px;
+    color: $white_color;
+    text-decoration: none;
+    background-color: #959595;
+    width: 125px;
+    line-height: 30px;
+    border-radius: 3px;
+    font-weight: $font_bold;
+    transition: .3s;
+    &:hover {
+      background-color: $grey_color;
+    }
+  }
+}

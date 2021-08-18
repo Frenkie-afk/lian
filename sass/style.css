@@ -1,5 +1,7 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+@import url("https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css");
+@import url("https://resources/demos/style.css");
 @import "../css/owl.carousel.css";
 header {
   position: relative;
@@ -57,7 +59,7 @@ header .container nav ul li a {
 .carousel .owl-nav {
   width: 100%;
   position: absolute;
-  top: 10%;
+  top: 12%;
 }
 .carousel .owl-nav .owl-prev, .carousel .owl-nav .owl-next {
   position: absolute;
@@ -67,7 +69,7 @@ header .container nav ul li a {
   border: 1px solid #fbfcfc !important;
   border-radius: 50%;
 }
-.carousel .owl-nav .owl-prev:before, .carousel .owl-nav .owl-next:before {
+.carousel .owl-nav .owl-prev:before, .carousel .owl-nav .gallery .ui-tabs-panel span.owl-prev:hover:after, .gallery .ui-tabs-panel .carousel .owl-nav span.owl-prev:hover:after, .carousel .owl-nav .owl-next:before, .carousel .owl-nav .gallery .ui-tabs-panel span.owl-next:hover:after, .gallery .ui-tabs-panel .carousel .owl-nav span.owl-next:hover:after {
   content: "";
   font-weight: 900;
   font-family: "Font Awesome 5 Free", sans-serif;
@@ -77,7 +79,7 @@ header .container nav ul li a {
 .carousel .owl-nav .owl-next {
   right: 0;
 }
-.carousel .owl-nav .owl-next:before {
+.carousel .owl-nav .owl-next:before, .carousel .owl-nav .gallery .ui-tabs-panel span.owl-next:hover:after, .gallery .ui-tabs-panel .carousel .owl-nav span.owl-next:hover:after {
   content: "";
 }
 .carousel .owl-nav button {
@@ -124,6 +126,99 @@ header .container nav ul li a {
   letter-spacing: 8px;
 }
 
+.gallery {
+  padding: 33px 0 73px;
+  background-color: #fafafa;
+  text-align: center;
+}
+.gallery #tabs {
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+.gallery .ui-tabs-nav {
+  display: flex;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  border-top: 1px solid #e1e1e1;
+  border-bottom: 1px solid #e1e1e1;
+  padding: 15px 0;
+  margin-bottom: 30px;
+}
+.gallery .ui-tabs-tab {
+  background-color: transparent;
+  margin: 0 !important;
+  border: none;
+  border-right: 1px solid #e1e1e1;
+  transform: skewX(-25deg);
+}
+.gallery .ui-tabs-tab:hover a {
+  color: black !important;
+}
+.gallery .ui-tabs-anchor {
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 700;
+  transform: skewX(25deg);
+  padding: 10px 17px !important;
+  transition: 0.3s;
+}
+.gallery .ui-state-default a {
+  color: #777777;
+}
+.gallery .ui-state-active a {
+  color: black;
+}
+.gallery .ui-tabs-panel {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0;
+}
+.gallery .ui-tabs-panel span {
+  position: relative;
+  display: block;
+  margin-bottom: 30px;
+  transition: 0.3s;
+  background-color: rgba(0, 0, 0, 0.84);
+}
+.gallery .ui-tabs-panel span:hover:before, .gallery .ui-tabs-panel span:hover:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 2px;
+  background-color: #cacaca;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.gallery .ui-tabs-panel span:hover:after {
+  height: 40px;
+  width: 2px;
+}
+.gallery .ui-tabs-panel span:hover img {
+  opacity: 30%;
+}
+.gallery .btn {
+  display: inline-block;
+  font-size: 13px;
+  color: white;
+  text-decoration: none;
+  background-color: #959595;
+  width: 125px;
+  line-height: 30px;
+  border-radius: 3px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+.gallery .btn:hover {
+  background-color: #777777;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -133,6 +228,7 @@ header .container nav ul li a {
 img {
   display: block;
   width: 100%;
+  transition: 0.3s;
 }
 
 body {

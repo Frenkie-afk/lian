@@ -8,7 +8,7 @@
   .owl-nav {
     width: 100%;
     position: absolute;
-    top: 10%;
+    top: 12%;
     .owl-prev{
       position: absolute;
       display: block;
@@ -46,7 +46,7 @@
     .owl-dot {
       width: 14px;
       height: 14px;
-      background-color: white;
+      background-color: $white_color;
       border-radius: 50%;
       margin-right: 16px;
       transition: .3s;
@@ -58,7 +58,7 @@
   .carousel_wrapper {
     margin-bottom: 210px;
     .title {
-      color: white;
+      color: $white_color;
       font-size: 48px;
       line-height: 48px;
       font-weight: $font_light;
