@@ -1,0 +1,34 @@
+footer {
+  padding: 64px 0 45px;
+  text-align: center;
+  .logo{
+    display: inline-block;
+    margin-bottom: 44px;
+  }
+  .socials {
+    border-top: 1px solid #ebebeb;
+    border-bottom: 1px solid #ebebeb;
+    padding: 23px 0;
+    margin-bottom: 37px;
+    a {
+      display: inline-block;
+      margin: 0 26px;
+      color: $grey_color;
+      text-decoration: none;
+      font-size: 14px;
+      transition: .3s;
+      &:hover {
+        transform: translateY(-15%);
+        color: $black_color;
+      }
+    }
+  }
+  .copyright {
+    font-size: 13px;
+    color: #9c9c9c;
+    a {
+      text-decoration: none;
+      color: $black_color;
+    }
+  }
+}

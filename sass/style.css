@@ -219,6 +219,41 @@ header .container nav ul li a {
   background-color: #777777;
 }
 
+footer {
+  padding: 64px 0 45px;
+  text-align: center;
+}
+footer .logo {
+  display: inline-block;
+  margin-bottom: 44px;
+}
+footer .socials {
+  border-top: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+  padding: 23px 0;
+  margin-bottom: 37px;
+}
+footer .socials a {
+  display: inline-block;
+  margin: 0 26px;
+  color: #777777;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+footer .socials a:hover {
+  transform: translateY(-15%);
+  color: black;
+}
+footer .copyright {
+  font-size: 13px;
+  color: #9c9c9c;
+}
+footer .copyright a {
+  text-decoration: none;
+  color: black;
+}
+
 * {
   padding: 0;
   margin: 0;
