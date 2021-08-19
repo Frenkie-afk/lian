@@ -17,7 +17,7 @@
       height: 42px;
       border: 1px solid #fbfcfc !important;
       border-radius: 50%;
-      left: 7%;
+      left: 10%;
       &:before {
         content: "\f053";
         font-weight: 900;
@@ -29,7 +29,7 @@
     .owl-next {
       @extend .owl-prev;
       left: unset;
-      right: 7%;
+      right: 10%;
       &:before {
         content: "\f054";
       }

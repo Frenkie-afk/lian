@@ -68,7 +68,7 @@ header .container nav ul li a {
   height: 42px;
   border: 1px solid #fbfcfc !important;
   border-radius: 50%;
-  left: 7%;
+  left: 10%;
 }
 .carousel .owl-nav .owl-prev:before, .carousel .owl-nav .gallery .ui-tabs-panel span.owl-prev:hover:after, .gallery .ui-tabs-panel .carousel .owl-nav span.owl-prev:hover:after, .carousel .owl-nav .owl-next:before, .carousel .owl-nav .gallery .ui-tabs-panel span.owl-next:hover:after, .gallery .ui-tabs-panel .carousel .owl-nav span.owl-next:hover:after {
   content: "";
@@ -79,7 +79,7 @@ header .container nav ul li a {
 }
 .carousel .owl-nav .owl-next {
   left: unset;
-  right: 7%;
+  right: 10%;
 }
 .carousel .owl-nav .owl-next:before, .carousel .owl-nav .gallery .ui-tabs-panel span.owl-next:hover:after, .gallery .ui-tabs-panel .carousel .owl-nav span.owl-next:hover:after {
   content: "";

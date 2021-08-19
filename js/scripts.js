@@ -5,6 +5,12 @@ $(document).ready(function(){
         margin:0,
         nav:true,
         navText: [ '', ' ' ],
+        autoplay:true,
+        autoplayTimeout:3500,
+        autoplayHoverPause:true,
+        autoplaySpeed:1000,
+        navSpeed: 1000,
+        dotsSpeed: 1000,
 
         responsive:{
             0:{
