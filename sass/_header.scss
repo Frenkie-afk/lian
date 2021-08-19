@@ -1,9 +1,10 @@
 
 header {
   position: relative;
+  z-index: 2;
   padding: 27px 0;
-  -webkit-box-shadow: 0 2px 5px 1px #bfc4c3;
-  box-shadow: 0 2px 5px 1px #bfc4c3;
+  -webkit-box-shadow: 0 2px 3px 2px #b5babd;
+  box-shadow: 0 2px 3px 2px #b5babd;
   .container{
     &d-flex{
       align-items: center;

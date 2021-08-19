@@ -1,12 +1,12 @@
-@import "libs/fonts";
+@import "libs/_fonts";
 @import url('https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css');
 @import url('https://resources/demos/style.css');
 @import "../css/owl.carousel.css";
-@import "variables";
-@import "header";
-@import "carousel";
-@import "gallery";
-@import "footer";
+@import "_variables";
+@import "_header";
+@import "_carousel";
+@import "_gallery";
+@import "_footer";
 
 
 * {
