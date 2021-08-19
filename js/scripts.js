@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+    //carousel
     $('.owl-carousel').owlCarousel({
         loop:true,
         margin:0,
@@ -11,7 +11,6 @@ $(document).ready(function(){
         autoplaySpeed:1000,
         navSpeed: 1000,
         dotsSpeed: 1000,
-
         responsive:{
             0:{
                 items:1
@@ -22,7 +21,27 @@ $(document).ready(function(){
         }
     });
 
+    //tabs
     $( function() {
         $( "#tabs" ).tabs();
+    } );
+
+    //dialog
+    $( function() {
+        $( "#dialog" ).dialog({
+            autoOpen: false,
+            show: {
+                effect: "fade",
+                duration: 500
+            },
+            hide: {
+                effect: "fade",
+                duration: 500
+            }
+        });
+
+        $( "#search" ).on( "click", function() {
+            $( "#dialog" ).dialog( "open" );
+        });
     } );
 });
