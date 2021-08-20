@@ -24,6 +24,9 @@ header .container nav ul {
 header .container nav ul li {
   margin: 0 20px;
 }
+header .container nav ul li:last-child {
+  margin: 0 0 0 20px;
+}
 header .container nav ul li:hover a {
   color: black;
 }
@@ -47,6 +50,9 @@ header .container nav ul li a {
   color: #777777;
   text-decoration: none;
   transition: 0.3s;
+}
+header .search-overlay {
+  display: none;
 }
 
 .carousel {
