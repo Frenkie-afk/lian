@@ -39,7 +39,7 @@ header .container nav ul li:first-child:before {
   margin: 5px 20px 5px;
   transition: 0.3s linear;
 }
-header .container nav ul li:last-child a:before {
+header .container nav ul li:last-child .search:before, header .container nav ul li:last-child .gallery .ui-tabs-panel span.search:after, .gallery .ui-tabs-panel header .container nav ul li:last-child span.search:after, header .container nav ul li:last-child #dialog form button:before, #dialog form header .container nav ul li:last-child button:before {
   content: "";
   font-weight: 900;
   font-family: "Font Awesome 5 Free", sans-serif;
@@ -55,6 +55,115 @@ header .search-overlay {
   display: none;
 }
 
+.ui-dialog {
+  position: fixed !important;
+  height: 100% !important;
+  width: 100% !important;
+  background-color: rgba(36, 43, 47, 0.95);
+  border: none !important;
+  border-radius: unset !important;
+}
+.ui-dialog .ui-dialog-titlebar {
+  max-width: 1150px;
+  margin: auto;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  top: 20px;
+  animation: slide-search_2 0.5s;
+}
+.ui-dialog .ui-dialog-titlebar .ui-dialog-title {
+  margin: 0;
+}
+.ui-dialog .ui-dialog-titlebar .ui-button {
+  top: 0;
+  margin: 0;
+  text-indent: 0;
+  background: transparent;
+  border: none;
+  width: 25px;
+  height: 35px;
+  padding: 0;
+  right: 0;
+}
+.ui-dialog .ui-dialog-titlebar .ui-button:after {
+  content: "";
+  font-weight: 900;
+  font-family: "Font Awesome 5 Free";
+  color: white;
+  font-size: 35px;
+}
+.ui-dialog .ui-dialog-titlebar .ui-button span {
+  display: none;
+}
+
+#dialog {
+  max-width: 960px;
+  margin: 288px auto 0;
+  padding: 0;
+  animation: slide-search 0.5s;
+}
+#dialog form {
+  position: relative;
+}
+#dialog form input {
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  font-size: 45px;
+  line-height: 45px;
+  font-weight: 700;
+  color: white;
+  padding: 0 60px 24px 0;
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid white;
+  -webkit-appearance: none;
+  outline: none;
+}
+#dialog form input::placeholder {
+  font-weight: 300;
+  color: #777777;
+}
+#dialog form button {
+  position: absolute;
+  right: 0;
+  top: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+#dialog form button:before {
+  color: white;
+  font-size: 36px;
+  content: "";
+  font-weight: 900;
+  font-family: "Font Awesome 5 Free";
+}
+
+::-webkit-search-cancel-button {
+  display: none;
+}
+
+@keyframes slide-search {
+  0% {
+    opacity: 0;
+    margin: 350px auto 0;
+  }
+  100% {
+    margin: 288px auto 0;
+    opacity: 1;
+  }
+}
+@keyframes slide-search_2 {
+  0% {
+    opacity: 0;
+    top: -40px;
+  }
+  100% {
+    opacity: 1;
+    top: 20px;
+  }
+}
 .carousel {
   text-align: center;
 }
@@ -76,7 +185,7 @@ header .search-overlay {
   border-radius: 50%;
   left: 10%;
 }
-.carousel .owl-nav .owl-prev:before, .carousel .owl-nav .gallery .ui-tabs-panel span.owl-prev:hover:after, .gallery .ui-tabs-panel .carousel .owl-nav span.owl-prev:hover:after, .carousel .owl-nav .owl-next:before, .carousel .owl-nav .gallery .ui-tabs-panel span.owl-next:hover:after, .gallery .ui-tabs-panel .carousel .owl-nav span.owl-next:hover:after {
+.carousel .owl-nav .owl-prev:before, .carousel .owl-nav .gallery .ui-tabs-panel span.owl-prev:after, .gallery .ui-tabs-panel .carousel .owl-nav span.owl-prev:after, .carousel .owl-nav .owl-next:before, .carousel .owl-nav .gallery .ui-tabs-panel span.owl-next:after, .gallery .ui-tabs-panel .carousel .owl-nav span.owl-next:after {
   content: "";
   font-weight: 900;
   font-family: "Font Awesome 5 Free", sans-serif;
@@ -87,7 +196,7 @@ header .search-overlay {
   left: unset;
   right: 10%;
 }
-.carousel .owl-nav .owl-next:before, .carousel .owl-nav .gallery .ui-tabs-panel span.owl-next:hover:after, .gallery .ui-tabs-panel .carousel .owl-nav span.owl-next:hover:after {
+.carousel .owl-nav .owl-next:before, .carousel .owl-nav .gallery .ui-tabs-panel span.owl-next:after, .gallery .ui-tabs-panel .carousel .owl-nav span.owl-next:after {
   content: "";
 }
 .carousel .owl-nav button {
@@ -197,10 +306,10 @@ header .search-overlay {
   position: relative;
   display: block;
   margin-bottom: 30px;
-  transition: 0.3s;
+  transition: 0.5s ease-in-out;
   background-color: rgba(0, 0, 0, 0.84);
 }
-.gallery .ui-tabs-panel span:hover:before, .gallery .ui-tabs-panel span:hover:after {
+.gallery .ui-tabs-panel span:before, .gallery .ui-tabs-panel span:after {
   content: "";
   position: absolute;
   display: block;
@@ -209,11 +318,16 @@ header .search-overlay {
   background-color: #cacaca;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: scale(0) translate(-50%, -50%);
+  transition: 0.2s 0s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
-.gallery .ui-tabs-panel span:hover:after {
+.gallery .ui-tabs-panel span:after {
   height: 40px;
   width: 2px;
+}
+.gallery .ui-tabs-panel span:hover:before, .gallery .ui-tabs-panel span:hover:after {
+  transform: scale(1) translate(-50%, -50%);
+  transition: 0.3s 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .gallery .ui-tabs-panel span:hover img {
   opacity: 30%;

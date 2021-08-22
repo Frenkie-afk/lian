@@ -37,7 +37,7 @@ header {
             }
           }
           &:last-child {
-            a {
+            .search {
               &:before {
                 content: "\f002";
                 font-weight: 900;
@@ -58,5 +58,119 @@ header {
   }
   .search-overlay {
     display: none;
+  }
+}
+
+.ui-dialog {
+  position: fixed !important;
+  height: 100% !important;
+  width: 100% !important;
+  background-color: rgba(36,43,47,.95);
+  border: none !important;
+  border-radius: unset !important;
+  .ui-dialog-titlebar {
+    max-width: 1150px;
+    margin: auto;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    top: 20px;
+    animation: slide-search_2 .5s ;
+    .ui-dialog-title {
+      margin: 0;
+    }
+    .ui-button {
+      top: 0;
+      margin: 0;
+      text-indent: 0;
+      background: transparent;
+      border: none;
+      width: 25px;
+      height: 35px;
+      padding: 0;
+      right: 0;
+      &:after {
+        content: "\f00d";
+        font-weight: 900;
+        font-family: "Font Awesome 5 Free";
+        color: $white_color;
+        font-size: 35px;
+      }
+      span {
+        display: none;
+      }
+    }
+  }
+}
+
+#dialog {
+  max-width: 960px;
+  margin: 288px auto 0;
+  padding: 0;
+  animation: slide-search .5s;
+  form {
+    position: relative;
+    input{
+      font-family: "Roboto", sans-serif;
+      width: 100%;
+      font-size: 45px;
+      line-height: 45px;
+      font-weight: $font_bold;
+      color: $white_color;
+      padding: 0 60px 24px 0;
+      background-color: transparent;
+      border: none;
+      border-bottom: 3px solid $white_color;
+      -webkit-appearance: none;
+      outline: none;
+      &::placeholder {
+        font-weight: $font_light;
+        color: $grey_color;
+      }
+    }
+    button {
+      @extend .search;
+      position: absolute;
+      right: 0;
+      top: 12px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      &:before {
+        color: $white_color;
+        font-size: 36px;
+        content: "\f002";
+        font-weight: 900;
+        font-family: "Font Awesome 5 Free";
+      }
+    }
+  }
+}
+::-webkit-search-cancel-button {
+  display: none;
+}
+
+
+@keyframes slide-search {
+  0% {
+    opacity: 0;
+    margin: 350px auto 0;
+  }
+
+  100% {
+    margin: 288px auto 0;
+    opacity: 1;
+  }
+}
+
+@keyframes slide-search_2 {
+  0% {
+    opacity: 0;
+    top: -40px;
+  }
+
+  100% {
+    opacity: 1;
+    top: 20px;
   }
 }

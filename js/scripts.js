@@ -32,15 +32,18 @@ $(document).ready(function(){
             autoOpen: false,
             show: {
                 effect: "fade",
-                duration: 500
+                duration: 200
             },
             hide: {
                 effect: "fade",
-                duration: 500
-            }
+                duration: 200
+            },
+            draggable: false,
+            resizable:false,
+            closeText: null
         });
 
-        $( "#search" ).on( "click", function() {
+        $( "#opener" ).on( "click", function() {
             $( "#dialog" ).dialog( "open" );
         });
     } );
