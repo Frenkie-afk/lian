@@ -3,12 +3,44 @@
 @import url("https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css");
 @import url("https://resources/demos/style.css");
 @import "../css/owl.carousel.css";
+@import "../css/animation.css";
+@keyframes slide-search {
+  0% {
+    opacity: 0;
+    margin: 270px auto 0;
+  }
+  100% {
+    margin: 190px auto 0;
+    opacity: 1;
+  }
+}
 @keyframes slide-search_2 {
   0% {
     opacity: 0;
   }
   100% {
     opacity: 1;
+  }
+}
+@keyframes nav-bar {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes scale {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) scale(2);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
   }
 }
 header {
@@ -25,6 +57,20 @@ header {
 }
 header .container.d-flex {
   align-items: center;
+}
+header .container > a {
+  -webkit-animation-name: fadeInDown;
+  -moz-animation-name: fadeInDown;
+  -o-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
 }
 @media screen and (max-width: 768px) {
   header .container > a img {
@@ -51,6 +97,7 @@ header .container .menu .search, header .container .menu #dialog form button, #d
   color: #777777;
   text-decoration: none;
   transition: 0.3s;
+  animation: nav-bar 1.8s;
 }
 @media screen and (max-width: 768px) {
   header .container .menu .search, header .container .menu #dialog form button, #dialog form header .container .menu button {
@@ -92,6 +139,9 @@ header .container nav {
 header .container nav.active {
   left: 0;
 }
+header .container nav.active li:first-child {
+  animation: nav-bar 1s;
+}
 header .container nav ul {
   display: flex;
   list-style: none;
@@ -127,6 +177,9 @@ header .container nav ul li {
 header .container nav ul li:hover a {
   color: black;
 }
+header .container nav ul li:first-child {
+  animation: nav-bar 1s;
+}
 header .container nav ul li:first-child:before {
   content: "";
   display: inline-block;
@@ -141,8 +194,18 @@ header .container nav ul li:first-child:before {
     display: none;
   }
 }
+header .container nav ul li:nth-child(2) {
+  animation: nav-bar 1.2s;
+}
+header .container nav ul li:nth-child(3) {
+  animation: nav-bar 1.4s;
+}
+header .container nav ul li:nth-child(4) {
+  animation: nav-bar 1.6s;
+}
 header .container nav ul li:last-child {
   margin: 0 40px 0 20px;
+  animation: nav-bar 1.8s;
 }
 @media screen and (max-width: 768px) {
   header .container nav ul li:last-child {
@@ -423,6 +486,9 @@ header .burger.active span:last-of-type {
   border-radius: 50%;
   left: 10%;
   transform: translateY(-50%);
+  animation-name: scale;
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }
 @media screen and (max-width: 1024px) {
   .carousel .owl-nav .owl-prev, .carousel .owl-nav .owl-next {
@@ -507,6 +573,7 @@ header .burger.active span:last-of-type {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  overflow: hidden;
 }
 .carousel .carousel_slide .title {
   color: white;
@@ -517,6 +584,11 @@ header .burger.active span:last-of-type {
   width: 40%;
   margin: 0 auto 38px;
   letter-spacing: 6px;
+  animation-name: fadeInLeft;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.25, 1.52, 1, 1);
 }
 @media screen and (max-width: 1440px) {
   .carousel .carousel_slide .title {
@@ -552,6 +624,11 @@ header .burger.active span:last-of-type {
   line-height: 18px;
   font-weight: 300;
   letter-spacing: 8px;
+  animation-name: fadeInRight;
+  animation-duration: 1s;
+  animation-delay: 1.5s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.25, 1.52, 1, 1);
 }
 @media screen and (max-width: 1024px) {
   .carousel .carousel_slide .sub-title {

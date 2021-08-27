@@ -1,16 +1,5 @@
 
 
-@keyframes slide-search_2 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-
 header {
   position: relative;
   z-index: 2;
@@ -25,6 +14,18 @@ header {
       align-items: center;
     }
     >a {
+      -webkit-animation-name: fadeInDown;
+      -moz-animation-name: fadeInDown;
+      -o-animation-name: fadeInDown;
+      animation-name: fadeInDown;
+      -webkit-animation-fill-mode: both;
+      -moz-animation-fill-mode: both;
+      -o-animation-fill-mode: both;
+      animation-fill-mode: both;
+      -webkit-animation-duration: 1s;
+      -moz-animation-duration: 1s;
+      -o-animation-duration: 1s;
+      animation-duration: 1s;
       img {
         @include max-screen(768px) {
           width: 110px;
@@ -46,6 +47,7 @@ header {
         color: $grey_color;
         text-decoration: none;
         transition: .3s;
+        animation: nav-bar 1.8s;
         @include max-screen(768px) {
           font-size: 25px;
           color: #4a4a4a;
@@ -81,6 +83,11 @@ header {
       }
       &.active{
         left: 0;
+        li {
+          &:first-child {
+            animation: nav-bar 1s;
+          }
+        }
       }
       ul {
         display: flex;
@@ -110,6 +117,7 @@ header {
             }
           }
           &:first-child {
+            animation: nav-bar 1s;
             &:before {
               content: "";
               display: inline-block;
@@ -123,8 +131,18 @@ header {
               }
             }
           }
+          &:nth-child(2) {
+            animation: nav-bar 1.2s;
+          }
+          &:nth-child(3) {
+            animation: nav-bar 1.4s;
+          }
+          &:nth-child(4) {
+            animation: nav-bar 1.6s;
+          }
           &:last-child {
             margin: 0 40px 0 20px;
+            animation: nav-bar 1.8s;
             @include max-screen(768px) {
               margin: 0 36px;
             }

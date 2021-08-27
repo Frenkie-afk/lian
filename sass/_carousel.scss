@@ -32,6 +32,9 @@
       border-radius: 50%;
       left: 10%;
       transform: translateY(-50%);
+      animation-name: scale;
+      animation-duration: 1s;
+      animation-fill-mode: both;
       @include max-screen(1024px) {
         left: 1%;
       }
@@ -106,6 +109,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      overflow: hidden;
     }
     .title {
       color: $white_color;
@@ -117,6 +121,11 @@
       width: 40%;
       margin: 0 auto 38px;
       letter-spacing: 6px;
+      animation-name: fadeInLeft;
+      animation-duration: 1s;
+      animation-delay: 1s;
+      animation-fill-mode: both;
+      animation-timing-function:  cubic-bezier(.25,1.52,1,1);
       @include max-screen(1440px) {
         width: 52%;
       }
@@ -142,6 +151,11 @@
       line-height: 18px;
       font-weight: $font_light;
       letter-spacing: 8px;
+      animation-name: fadeInRight;
+      animation-duration: 1s;
+      animation-delay: 1.5s;
+      animation-fill-mode: both;
+      animation-timing-function:  cubic-bezier(.25,1.52,1,1);
       @include max-screen(1024px) {
         font-size: 16px;
       }

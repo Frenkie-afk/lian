@@ -1,0 +1,49 @@
+@keyframes slide-search {
+  0% {
+    opacity: 0;
+    margin: 270px auto 0;
+  }
+
+  100% {
+    margin: 190px auto 0;
+    opacity: 1;
+  }
+}
+
+@keyframes slide-search_2 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes nav-bar {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scale {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) scale(2);;
+  }
+
+
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+
+  }
+}
+
