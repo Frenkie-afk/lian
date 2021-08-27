@@ -3,9 +3,20 @@ footer {
   text-align: center;
   -webkit-box-shadow: 0 2px 7px 1px #b5babd;
   box-shadow: 0 2px 7px 1px #b5babd;
+  @include max-screen(425px) {
+    padding: 40px 0 25px;
+  }
   .logo{
     display: inline-block;
     margin-bottom: 44px;
+    img {
+      @include max-screen(768px) {
+        width: 110px;
+      }
+      @include max-screen(425px) {
+        width: 100px;
+      }
+    }
   }
   .socials {
     border-top: 1px solid #ebebeb;
@@ -19,6 +30,9 @@ footer {
       text-decoration: none;
       font-size: 14px;
       transition: .3s;
+      @include max-screen(425px) {
+        margin: 0 10px;
+      }
       &:hover {
         transform: translateY(-15%);
         color: $black_color;

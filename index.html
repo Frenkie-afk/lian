@@ -12,46 +12,50 @@
 
 <header>
     <div class="container d-flex">
-        <a href="#">
+        <a class="logo" href="#">
             <img src="img/logo.png" alt="logo">
         </a>
-        <nav>
-            <ul>
-                <li>
-                    <a href="#">HOME</a>
-                </li>
-                <li>
-                    <a href="about.html">ABOUT</a>
-                </li>
-                <li>
-                    <a href="portfolio.html">PORTFOLIO</a>
-                </li>
-                <li>
-                    <a href="blog.html">BLOG</a>
-                </li>
-                <li>
-                    <a href="contact.html">CONTACT</a>
-                </li>
-                <li>
-                    <a href="#" class="search" id="opener"></a>
-                </li>
-            </ul>
-        </nav>
-        <div class="search-overlay">
-            <div id="dialog" title="Basic dialog">
-                <form action="" method="post">
-                    <input type="search" placeholder="WHAT ARE YOU LOOKING FOR?" name="search">
-                    <button type="submit"></button>
-                    <i class="fas fa-times"></i>
-                </form>
-            </div>
+        <button class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="menu">
+            <nav class="nav-menu">
+                <ul>
+                    <li>
+                        <a href="#">HOME</a>
+                    </li>
+                    <li>
+                        <a href="about.html">ABOUT</a>
+                    </li>
+                    <li>
+                        <a href="portfolio.html">PORTFOLIO</a>
+                    </li>
+                    <li>
+                        <a href="blog.html">BLOG</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">CONTACT</a>
+                    </li>
+                </ul>
+            </nav>
+            <a href="#" class="search" id="opener"></a>
         </div>
-    </div>
+
+        <div id="dialog" title="Basic dialog">
+            <form class="" action="" method="post">
+                <input type="search" placeholder="WHAT ARE YOU LOOKING FOR?" name="search">
+                <button type="submit"></button>
+                <i class="fas fa-times"></i>
+            </form>
+        </div>
+</div>
 </header>
 
 <section class="carousel">
             <div class="owl-carousel">
-                <div class="carousel_slide">
+                <div class="carousel_slide first">
                     <span>
                         <img src="img/slide-1.jpg" alt="picture">
                     </span>
@@ -94,7 +98,7 @@
                 <li><a href="#tabs-7">BRANDING</a></li>
             </ul>
             <div id="tabs-1">
-                <div class="col-1">
+                <div class="row">
                 <span>
                     <img src="img/gallery_photo-1.jpg" alt="photo">
                 </span>
@@ -106,7 +110,7 @@
                 </span>
                 </div>
 
-               <div class="col-2">
+               <div class="row">
                     <span>
                     <img src="img/gallery_photo-2.jpg" alt="photo">
                 </span>
@@ -121,7 +125,7 @@
                 </span>
                </div>
 
-                <div class="col-3">
+                <div class="row">
                     <span>
                     <img src="img/gallery_photo-3.jpg" alt="photo">
                 </span>
@@ -134,13 +138,13 @@
                 </div>
             </div>
             <div id="tabs-2">
-                <div class="col-1">
+                <div class="row">
                     <span>
                         <img src="img/gallery_photo-1.jpg" alt="photo">
                     </span>
                 </div>
 
-                <div class="col-2">
+                <div class="row">
                     <span>
                     <img src="img/gallery_photo-2.jpg" alt="photo">
                     </span>
@@ -149,20 +153,20 @@
                     </span>
                 </div>
 
-                <div class="col-3">
+                <div class="row">
                     <span>
                     <img src="img/gallery_photo-3.jpg" alt="photo">
                     </span>
                 </div>
             </div>
             <div id="tabs-3">
-                <div class="col-1">
+                <div class="row">
                 <span>
                     <img src="img/gallery_photo-2.jpg" alt="photo">
                 </span>
                 </div>
 
-                <div class="col-2">
+                <div class="row">
                     <span>
                     <img src="img/gallery_photo-8.jpg" alt="photo">
                     </span>
@@ -171,14 +175,14 @@
                     </span>
                 </div>
 
-                <div class="col-3">
+                <div class="row">
                     <span>
                     <img src="img/gallery_photo-1.jpg" alt="photo">
                 </span>
                 </div>
             </div>
             <div id="tabs-4">
-                <div class="col-1">
+                <div class="row">
                 <span>
                     <img src="img/gallery_photo-3.jpg" alt="photo">
                 </span>
@@ -190,7 +194,7 @@
                 </span>
                 </div>
 
-                <div class="col-2">
+                <div class="row">
                     <span>
                     <img src="img/gallery_photo-9.jpg" alt="photo">
                 </span>
@@ -205,7 +209,7 @@
                 </span>
                 </div>
 
-                <div class="col-3">
+                <div class="row">
                     <span>
                     <img src="img/gallery_photo-7.jpg" alt="photo">
                 </span>
@@ -218,13 +222,13 @@
                 </div>
             </div>
             <div id="tabs-5">
-                <div class="col-1">
+                <div class="row">
                     <span>
                         <img src="img/gallery_photo-1.jpg" alt="photo">
                     </span>
                 </div>
 
-                <div class="col-2">
+                <div class="row">
                     <span>
                     <img src="img/gallery_photo-2.jpg" alt="photo">
                     </span>
@@ -233,20 +237,20 @@
                     </span>
                 </div>
 
-                <div class="col-3">
+                <div class="row">
                     <span>
                     <img src="img/gallery_photo-3.jpg" alt="photo">
                     </span>
                 </div>
             </div>
             <div id="tabs-6">
-                <div class="col-1">
+                <div class="row">
                 <span>
                     <img src="img/gallery_photo-2.jpg" alt="photo">
                 </span>
                 </div>
 
-                <div class="col-2">
+                <div class="row">
                     <span>
                     <img src="img/gallery_photo-8.jpg" alt="photo">
                     </span>
@@ -255,14 +259,14 @@
                     </span>
                 </div>
 
-                <div class="col-3">
+                <div class="row">
                     <span>
                     <img src="img/gallery_photo-1.jpg" alt="photo">
                 </span>
                 </div>
             </div>
             <div id="tabs-7">
-                <div class="col-1">
+                <div class="row">
                 <span>
                     <img src="img/gallery_photo-4.jpg" alt="photo">
                 </span>
@@ -274,7 +278,7 @@
                 </span>
                 </div>
 
-                <div class="col-2">
+                <div class="row">
                     <span>
                     <img src="img/gallery_photo-3.jpg" alt="photo">
                 </span>
@@ -289,7 +293,7 @@
                 </span>
                 </div>
 
-                <div class="col-3">
+                <div class="row">
                     <span>
                     <img src="img/gallery_photo-2.jpg" alt="photo">
                 </span>

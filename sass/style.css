@@ -3,6 +3,14 @@
 @import url("https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css");
 @import url("https://resources/demos/style.css");
 @import "../css/owl.carousel.css";
+@keyframes slide-search_2 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 header {
   position: relative;
   z-index: 2;
@@ -10,22 +18,111 @@ header {
   -webkit-box-shadow: 0 2px 3px 2px #b5babd;
   box-shadow: 0 2px 3px 2px #b5babd;
 }
-header .containerd-flex {
+@media screen and (max-width: 768px) {
+  header {
+    padding: 10px 0;
+  }
+}
+header .container.d-flex {
   align-items: center;
+}
+@media screen and (max-width: 768px) {
+  header .container > a img {
+    width: 110px;
+  }
+}
+@media screen and (max-width: 425px) {
+  header .container > a img {
+    width: 100px;
+  }
+}
+@media screen and (max-width: 768px) {
+  header .container > a {
+    order: 2;
+  }
+}
+header .container .menu {
+  display: flex;
+  align-items: center;
+}
+header .container .menu .search, header .container .menu #dialog form button, #dialog form header .container .menu button {
+  font-size: 14px;
+  font-weight: 700;
+  color: #777777;
+  text-decoration: none;
+  transition: 0.3s;
+}
+@media screen and (max-width: 768px) {
+  header .container .menu .search, header .container .menu #dialog form button, #dialog form header .container .menu button {
+    font-size: 25px;
+    color: #4a4a4a;
+  }
+}
+@media screen and (max-width: 425px) {
+  header .container .menu .search, header .container .menu #dialog form button, #dialog form header .container .menu button {
+    font-size: 25px;
+  }
+}
+header .container .menu .search:hover, header .container .menu #dialog form button:hover, #dialog form header .container .menu button:hover {
+  color: black;
+  transform: scale(1.2);
+}
+header .container .menu .search:before, header .container .menu .gallery .ui-tabs-panel span.search:after, .gallery .ui-tabs-panel header .container .menu span.search:after, header .container .menu #dialog form button:before, #dialog form header .container .menu button:before {
+  content: "";
+  font-weight: 900;
+  font-family: "Font Awesome 5 Free", sans-serif;
 }
 header .container nav {
   display: flex;
   align-items: center;
 }
+@media screen and (max-width: 768px) {
+  header .container nav {
+    display: block;
+    position: fixed;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+    left: 100%;
+    top: 50px;
+    transition: 0.2s ease-in-out;
+  }
+}
+header .container nav.active {
+  left: 0;
+}
 header .container nav ul {
   display: flex;
   list-style: none;
 }
+@media screen and (max-width: 768px) {
+  header .container nav ul {
+    flex-direction: column;
+    background-color: #eee;
+  }
+}
 header .container nav ul li {
   margin: 0 20px;
+  line-height: 14px;
 }
-header .container nav ul li:last-child {
-  margin: 0 0 0 20px;
+@media screen and (max-width: 768px) {
+  header .container nav ul li {
+    border-bottom: 1px solid white;
+    margin: 0 36px;
+    padding: 24px;
+  }
+}
+@media screen and (max-width: 768px) and (max-width: 425px) {
+  header .container nav ul li {
+    margin: 0 15px;
+    padding: 24px 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  header .container nav ul li:last-child {
+    border: none;
+  }
 }
 header .container nav ul li:hover a {
   color: black;
@@ -39,10 +136,24 @@ header .container nav ul li:first-child:before {
   margin: 5px 20px 5px;
   transition: 0.3s linear;
 }
-header .container nav ul li:last-child .search:before, header .container nav ul li:last-child .gallery .ui-tabs-panel span.search:after, .gallery .ui-tabs-panel header .container nav ul li:last-child span.search:after, header .container nav ul li:last-child #dialog form button:before, #dialog form header .container nav ul li:last-child button:before {
-  content: "";
-  font-weight: 900;
-  font-family: "Font Awesome 5 Free", sans-serif;
+@media screen and (max-width: 768px) {
+  header .container nav ul li:first-child:before {
+    display: none;
+  }
+}
+header .container nav ul li:last-child {
+  margin: 0 40px 0 20px;
+}
+@media screen and (max-width: 768px) {
+  header .container nav ul li:last-child {
+    margin: 0 36px;
+  }
+}
+@media screen and (max-width: 425px) {
+  header .container nav ul li:last-child {
+    margin: 0 15px;
+    padding: 24px 0;
+  }
 }
 header .container nav ul li a {
   font-size: 14px;
@@ -51,8 +162,48 @@ header .container nav ul li a {
   text-decoration: none;
   transition: 0.3s;
 }
-header .search-overlay {
+@media screen and (max-width: 768px) {
+  header .container nav ul li a {
+    font-size: 16px;
+    color: #4a4a4a;
+  }
+}
+header .burger {
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  border: none;
   display: none;
+  order: 3;
+}
+@media screen and (max-width: 768px) {
+  header .burger {
+    display: block;
+  }
+}
+header .burger span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  border-radius: 8px;
+  background-color: #4a4a4a;
+  margin-top: 4px;
+  transform-origin: 24px;
+  opacity: 1;
+  transition: 0.2s ease;
+}
+header .burger span:first-of-type {
+  margin: 0;
+}
+header .burger.active span:first-of-type {
+  transform: rotate(-45deg);
+}
+header .burger.active span:nth-child(2) {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+header .burger.active span:last-of-type {
+  transform: rotate(45deg);
 }
 
 .ui-dialog {
@@ -62,6 +213,7 @@ header .search-overlay {
   background-color: rgba(36, 43, 47, 0.95);
   border: none !important;
   border-radius: unset !important;
+  padding: 0 !important;
 }
 .ui-dialog .ui-dialog-titlebar {
   max-width: 1150px;
@@ -71,6 +223,35 @@ header .search-overlay {
   padding: 0;
   top: 20px;
   animation: slide-search_2 0.5s;
+}
+@media screen and (max-width: 2560px) {
+  @keyframes slide-search {
+    0% {
+      opacity: 0;
+      margin: 350px auto 0;
+    }
+    100% {
+      margin: 288px auto 0;
+      opacity: 1;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .ui-dialog .ui-dialog-titlebar {
+    top: 4px;
+  }
+}
+@media screen and (max-width: 425px) {
+  @keyframes slide-search {
+    0% {
+      opacity: 0;
+      margin: 270px auto 0;
+    }
+    100% {
+      margin: 190px auto 0;
+      opacity: 1;
+    }
+  }
 }
 .ui-dialog .ui-dialog-titlebar .ui-dialog-title {
   margin: 0;
@@ -84,7 +265,17 @@ header .search-overlay {
   width: 25px;
   height: 35px;
   padding: 0;
-  right: 0;
+  right: 15px;
+}
+@media screen and (max-width: 1024px) {
+  .ui-dialog .ui-dialog-titlebar .ui-button {
+    right: 10px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .ui-dialog .ui-dialog-titlebar .ui-button {
+    left: 13px;
+  }
 }
 .ui-dialog .ui-dialog-titlebar .ui-button:after {
   content: "";
@@ -103,8 +294,23 @@ header .search-overlay {
   padding: 0;
   animation: slide-search 0.5s;
 }
+@media screen and (max-width: 1024px) {
+  #dialog {
+    max-width: 768px;
+  }
+}
+@media screen and (max-width: 425px) {
+  #dialog {
+    margin: 190px auto 0;
+  }
+}
 #dialog form {
   position: relative;
+}
+@media screen and (max-width: 1024px) {
+  #dialog form {
+    margin: 0 15px;
+  }
 }
 #dialog form input {
   font-family: "Roboto", sans-serif;
@@ -119,6 +325,29 @@ header .search-overlay {
   border-bottom: 3px solid white;
   -webkit-appearance: none;
   outline: none;
+}
+@media screen and (max-width: 1024px) {
+  #dialog form input {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #dialog form input {
+    font-size: 34px;
+    padding: 0 30px 16px 0;
+  }
+}
+@media screen and (max-width: 425px) {
+  #dialog form input {
+    font-size: 21px;
+    padding: 0 30px 12px 0;
+  }
+}
+@media screen and (max-width: 320px) {
+  #dialog form input {
+    font-size: 18px;
+    padding: 0 30px 0 0;
+  }
 }
 #dialog form input::placeholder {
   font-weight: 300;
@@ -139,42 +368,51 @@ header .search-overlay {
   font-weight: 900;
   font-family: "Font Awesome 5 Free";
 }
+@media screen and (max-width: 1024px) {
+  #dialog form button:before {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #dialog form button:before {
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 425px) {
+  #dialog form button:before {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 320px) {
+  #dialog form button:before {
+    font-size: 18px;
+  }
+}
 
 ::-webkit-search-cancel-button {
   display: none;
 }
 
-@keyframes slide-search {
-  0% {
-    opacity: 0;
-    margin: 350px auto 0;
-  }
-  100% {
-    margin: 288px auto 0;
-    opacity: 1;
-  }
-}
-@keyframes slide-search_2 {
-  0% {
-    opacity: 0;
-    top: -40px;
-  }
-  100% {
-    opacity: 1;
-    top: 20px;
-  }
-}
 .carousel {
   text-align: center;
 }
 .carousel .container {
   max-width: 1371px;
 }
+@media screen and (max-width: 768px) {
+  .carousel .owl-stage-outer {
+    height: 100% !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .carousel .owl-carousel .owl-item img {
+    width: 1200px;
+  }
+}
 .carousel .owl-nav {
   width: 100%;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
 }
 .carousel .owl-nav .owl-prev, .carousel .owl-nav .owl-next {
   position: absolute;
@@ -184,6 +422,18 @@ header .search-overlay {
   border: 1px solid #fbfcfc !important;
   border-radius: 50%;
   left: 10%;
+  transform: translateY(-50%);
+}
+@media screen and (max-width: 1024px) {
+  .carousel .owl-nav .owl-prev, .carousel .owl-nav .owl-next {
+    left: 1%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .carousel .owl-nav .owl-prev, .carousel .owl-nav .owl-next {
+    left: 0;
+    border: none !important;
+  }
 }
 .carousel .owl-nav .owl-prev:before, .carousel .owl-nav .gallery .ui-tabs-panel span.owl-prev:after, .gallery .ui-tabs-panel .carousel .owl-nav span.owl-prev:after, .carousel .owl-nav .owl-next:before, .carousel .owl-nav .gallery .ui-tabs-panel span.owl-next:after, .gallery .ui-tabs-panel .carousel .owl-nav span.owl-next:after {
   content: "";
@@ -196,6 +446,11 @@ header .search-overlay {
   left: unset;
   right: 10%;
 }
+@media screen and (max-width: 1024px) {
+  .carousel .owl-nav .owl-next {
+    right: 1%;
+  }
+}
 .carousel .owl-nav .owl-next:before, .carousel .owl-nav .gallery .ui-tabs-panel span.owl-next:after, .gallery .ui-tabs-panel .carousel .owl-nav span.owl-next:after {
   content: "";
 }
@@ -205,8 +460,18 @@ header .search-overlay {
 .carousel .owl-nav button:hover {
   background-color: black;
 }
+@media screen and (max-width: 768px) {
+  .carousel .owl-nav button:hover {
+    background-color: transparent;
+  }
+}
 .carousel .owl-nav button:hover.owl-prev, .carousel .owl-nav button.owl-next:hover {
   border: 1px solid black !important;
+}
+@media screen and (max-width: 768px) {
+  .carousel .owl-nav button:hover.owl-prev, .carousel .owl-nav button.owl-next:hover {
+    border: none !important;
+  }
 }
 .carousel .owl-dots {
   display: block;
@@ -222,8 +487,19 @@ header .search-overlay {
   margin-right: 16px;
   transition: 0.3s;
 }
+@media screen and (max-width: 425px) {
+  .carousel .owl-dots .owl-dot {
+    width: 10px;
+    height: 10px;
+  }
+}
 .carousel .owl-dots .owl-dot.active {
   border: 4px solid black;
+}
+@media screen and (max-width: 425px) {
+  .carousel .owl-dots .owl-dot.active {
+    border: 2px solid black;
+  }
 }
 .carousel .carousel_slide .carousel-text {
   position: absolute;
@@ -238,9 +514,37 @@ header .search-overlay {
   line-height: 48px;
   font-weight: 300;
   background-color: black;
-  max-width: 700px;
+  width: 40%;
   margin: 0 auto 38px;
   letter-spacing: 6px;
+}
+@media screen and (max-width: 1440px) {
+  .carousel .carousel_slide .title {
+    width: 52%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .carousel .carousel_slide .title {
+    width: 63%;
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .carousel .carousel_slide .title {
+    width: 80%;
+    font-size: 38px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .carousel .carousel_slide .title {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 320px) {
+  .carousel .carousel_slide .title {
+    font-size: 30px;
+    padding: 0 15px;
+  }
 }
 .carousel .carousel_slide .sub-title {
   color: black;
@@ -248,6 +552,32 @@ header .search-overlay {
   line-height: 18px;
   font-weight: 300;
   letter-spacing: 8px;
+}
+@media screen and (max-width: 1024px) {
+  .carousel .carousel_slide .sub-title {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .carousel .carousel_slide .sub-title {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .carousel_slide img {
+    object-position: -200px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .carousel_slide.first img {
+    object-position: -400px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .carousel_slide.first img {
+    object-position: -600px;
+  }
 }
 
 .gallery {
@@ -265,6 +595,7 @@ header .search-overlay {
 .gallery .ui-tabs-nav {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   border: none;
   background: transparent;
   border-top: 1px solid #e1e1e1;
@@ -272,12 +603,23 @@ header .search-overlay {
   padding: 15px 0;
   margin-bottom: 30px;
 }
+@media screen and (max-width: 425px) {
+  .gallery .ui-tabs-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .gallery .ui-tabs-tab {
   background-color: transparent;
   margin: 0 !important;
   border: none;
   border-right: 1px solid #e1e1e1;
   transform: skewX(-25deg);
+}
+@media screen and (max-width: 425px) {
+  .gallery .ui-tabs-tab {
+    border-right: none;
+  }
 }
 .gallery .ui-tabs-tab:hover a {
   color: black !important;
@@ -290,6 +632,11 @@ header .search-overlay {
   padding: 10px 17px !important;
   transition: 0.3s;
 }
+@media screen and (max-width: 425px) {
+  .gallery .ui-tabs-anchor {
+    font-size: 16px;
+  }
+}
 .gallery .ui-state-default a {
   color: #777777;
 }
@@ -299,8 +646,31 @@ header .search-overlay {
 .gallery .ui-tabs-panel {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
   padding: 0;
+}
+@media screen and (max-width: 425px) {
+  .gallery .ui-tabs-panel {
+    flex-direction: column;
+  }
+}
+.gallery .ui-tabs-panel .row {
+  margin: 0 15px;
+}
+.gallery .ui-tabs-panel .row:first-of-type {
+  margin-left: 0;
+}
+.gallery .ui-tabs-panel .row:last-of-type {
+  margin-right: 0;
+}
+@media screen and (max-width: 768px) {
+  .gallery .ui-tabs-panel .row {
+    margin: 0 7.5px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .gallery .ui-tabs-panel .row {
+    margin: 0;
+  }
 }
 .gallery .ui-tabs-panel span {
   position: relative;
@@ -308,6 +678,11 @@ header .search-overlay {
   margin-bottom: 30px;
   transition: 0.5s ease-in-out;
   background-color: rgba(0, 0, 0, 0.84);
+}
+@media screen and (max-width: 768px) {
+  .gallery .ui-tabs-panel span {
+    margin-bottom: 15px;
+  }
 }
 .gallery .ui-tabs-panel span:before, .gallery .ui-tabs-panel span:after {
   content: "";
@@ -354,9 +729,24 @@ footer {
   -webkit-box-shadow: 0 2px 7px 1px #b5babd;
   box-shadow: 0 2px 7px 1px #b5babd;
 }
+@media screen and (max-width: 425px) {
+  footer {
+    padding: 40px 0 25px;
+  }
+}
 footer .logo {
   display: inline-block;
   margin-bottom: 44px;
+}
+@media screen and (max-width: 768px) {
+  footer .logo img {
+    width: 110px;
+  }
+}
+@media screen and (max-width: 425px) {
+  footer .logo img {
+    width: 100px;
+  }
 }
 footer .socials {
   border-top: 1px solid #ebebeb;
@@ -371,6 +761,11 @@ footer .socials a {
   text-decoration: none;
   font-size: 14px;
   transition: 0.3s;
+}
+@media screen and (max-width: 425px) {
+  footer .socials a {
+    margin: 0 10px;
+  }
 }
 footer .socials a:hover {
   transform: translateY(-15%);
@@ -400,10 +795,18 @@ img {
 body {
   font-family: "Roboto", sans-serif;
 }
+body.lock {
+  overflow: hidden;
+}
 
 .container {
   max-width: 1140px;
   margin: auto;
+}
+@media screen and (max-width: 1440px) {
+  .container {
+    padding: 0 15px;
+  }
 }
 
 .d-flex {

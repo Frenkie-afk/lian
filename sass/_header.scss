@@ -1,24 +1,108 @@
 
+
+@keyframes slide-search_2 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
 header {
   position: relative;
   z-index: 2;
   padding: 27px 0;
   -webkit-box-shadow: 0 2px 3px 2px #b5babd;
   box-shadow: 0 2px 3px 2px #b5babd;
+  @include max-screen(768px) {
+    padding: 10px 0;
+  }
   .container{
-    &d-flex{
+    &.d-flex{
       align-items: center;
+    }
+    >a {
+      img {
+        @include max-screen(768px) {
+          width: 110px;
+        }
+        @include max-screen(425px) {
+          width: 100px;
+        }
+      }
+      @include max-screen(768px) {
+        order: 2;
+      }
+    }
+    .menu {
+      display: flex;
+      align-items: center;
+      .search {
+        font-size: 14px;
+        font-weight: $font_bold;
+        color: $grey_color;
+        text-decoration: none;
+        transition: .3s;
+        @include max-screen(768px) {
+          font-size: 25px;
+          color: #4a4a4a;
+        }
+        @include max-screen(425px) {
+          font-size: 25px;
+
+        }
+        &:hover {
+          color: $black_color;
+          transform: scale(1.2);
+        }
+        &:before {
+          content: "\f002";
+          font-weight: 900;
+          font-family: "Font Awesome 5 Free", sans-serif;
+        }
+      }
     }
     nav {
       display: flex;
       align-items: center;
+      @include max-screen(768px) {
+        display: block;
+        position: fixed;
+        background-color: $white_color;
+        height: 100%;
+        width: 100%;
+        z-index: 3;
+        left: 100%;
+        top: 50px;
+        transition: .2s ease-in-out;
+      }
+      &.active{
+        left: 0;
+      }
       ul {
         display: flex;
         list-style: none;
+        @include max-screen(768px) {
+          flex-direction: column;
+          background-color: #eee;
+        }
         li {
           margin: 0 20px;
-          &:last-child {
-            margin: 0 0 0 20px;
+          line-height: 14px;
+          @include max-screen(768px) {
+            border-bottom: 1px solid $white_color;
+            margin: 0 36px;
+            padding: 24px;
+            @include max-screen(425px) {
+              margin: 0 15px;
+              padding: 24px 0;
+            }
+            &:last-child {
+              border: none;
+            }
           }
           &:hover {
             a {
@@ -34,15 +118,19 @@ header {
               width: 20px;
               margin: 5px 20px 5px;
               transition: .3s linear;
+              @include max-screen(768px) {
+                display: none;
+              }
             }
           }
           &:last-child {
-            .search {
-              &:before {
-                content: "\f002";
-                font-weight: 900;
-                font-family: "Font Awesome 5 Free", sans-serif;
-              }
+            margin: 0 40px 0 20px;
+            @include max-screen(768px) {
+              margin: 0 36px;
+            }
+            @include max-screen(425px) {
+              margin: 0 15px;
+              padding: 24px 0;
             }
           }
           a {
@@ -51,13 +139,53 @@ header {
             color: $grey_color;
             text-decoration: none;
             transition: .3s;
+            @include max-screen(768px) {
+              font-size: 16px;
+              color: #4a4a4a;
+            }
           }
         }
       }
     }
   }
-  .search-overlay {
+  .burger {
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    border: none;
     display: none;
+    order: 3;
+    @include max-screen(768px) {
+      display: block;
+    }
+    span {
+      display: block;
+      width: 28px;
+      height: 3px;
+      border-radius: 8px;
+      background-color: #4a4a4a;
+      margin-top: 4px;
+      transform-origin: 24px;
+      opacity: 1;
+      transition: .2s ease;
+      &:first-of-type {
+        margin: 0;
+      }
+    }
+    &.active {
+      span {
+        &:first-of-type {
+          transform: rotate(-45deg);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+          transition: opacity .2s;
+        }
+        &:last-of-type {
+          transform: rotate(45deg);
+        }
+      }
+    }
   }
 }
 
@@ -68,6 +196,7 @@ header {
   background-color: rgba(36,43,47,.95);
   border: none !important;
   border-radius: unset !important;
+  padding: 0 !important;
   .ui-dialog-titlebar {
     max-width: 1150px;
     margin: auto;
@@ -76,6 +205,35 @@ header {
     padding: 0;
     top: 20px;
     animation: slide-search_2 .5s ;
+    @include max-screen(2560px) {
+      @keyframes slide-search {
+        0% {
+          opacity: 0;
+          margin: 350px auto 0;
+        }
+
+        100% {
+          margin: 288px auto 0;
+          opacity: 1;
+        }
+      }
+    }
+    @include max-screen(768px) {
+      top: 4px;
+    }
+    @include max-screen(425px) {
+      @keyframes slide-search {
+        0% {
+          opacity: 0;
+          margin: 270px auto 0;
+        }
+
+        100% {
+          margin: 190px auto 0;
+          opacity: 1;
+        }
+      }
+    }
     .ui-dialog-title {
       margin: 0;
     }
@@ -88,7 +246,13 @@ header {
       width: 25px;
       height: 35px;
       padding: 0;
-      right: 0;
+      right: 15px;
+      @include max-screen(1024px) {
+        right: 10px;
+      }
+      @include max-screen(768px) {
+        left: 13px;
+      }
       &:after {
         content: "\f00d";
         font-weight: 900;
@@ -108,8 +272,17 @@ header {
   margin: 288px auto 0;
   padding: 0;
   animation: slide-search .5s;
+  @include max-screen(1024px) {
+    max-width: 768px;
+  }
+  @include max-screen(425px) {
+    margin: 190px auto 0;
+  }
   form {
     position: relative;
+    @include max-screen(1024px) {
+      margin: 0 15px;
+    }
     input{
       font-family: "Roboto", sans-serif;
       width: 100%;
@@ -123,6 +296,21 @@ header {
       border-bottom: 3px solid $white_color;
       -webkit-appearance: none;
       outline: none;
+      @include max-screen(1024px) {
+        font-size: 40px;
+      }
+      @include max-screen(768px) {
+        font-size: 34px;
+        padding: 0 30px 16px 0;
+      }
+      @include max-screen(425px) {
+        font-size: 21px;
+        padding: 0 30px 12px 0;
+      }
+      @include max-screen(320px) {
+        font-size: 18px;
+        padding: 0 30px 0 0;
+      }
       &::placeholder {
         font-weight: $font_light;
         color: $grey_color;
@@ -142,6 +330,18 @@ header {
         content: "\f002";
         font-weight: 900;
         font-family: "Font Awesome 5 Free";
+        @include max-screen(1024px) {
+          font-size: 30px;
+        }
+        @include max-screen(768px) {
+          font-size: 26px;
+        }
+        @include max-screen(425px) {
+          font-size: 20px;
+        }
+        @include max-screen(320px) {
+          font-size: 18px;
+        }
       }
     }
   }
@@ -151,26 +351,3 @@ header {
 }
 
 
-@keyframes slide-search {
-  0% {
-    opacity: 0;
-    margin: 350px auto 0;
-  }
-
-  100% {
-    margin: 288px auto 0;
-    opacity: 1;
-  }
-}
-
-@keyframes slide-search_2 {
-  0% {
-    opacity: 0;
-    top: -40px;
-  }
-
-  100% {
-    opacity: 1;
-    top: 20px;
-  }
-}

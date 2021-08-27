@@ -3,6 +3,7 @@
 @import url('https://resources/demos/style.css');
 @import "../css/owl.carousel.css";
 @import "_variables";
+@import "libs/mixins";
 @import "_header";
 @import "_carousel";
 @import "_gallery";
@@ -24,11 +25,17 @@ img {
 
 body {
   font-family: 'Roboto', sans-serif;
+  &.lock {
+    overflow: hidden;
+  }
 }
 
 .container {
   max-width: 1140px;
   margin: auto;
+  @include max-screen(1440px) {
+    padding: 0 15px;
+  }
 }
 
 .d-flex {

@@ -12,12 +12,17 @@
   .ui-tabs-nav {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     border: none;
     background: transparent;
     border-top: 1px solid #e1e1e1;
     border-bottom: 1px solid #e1e1e1;
     padding: 15px 0;
     margin-bottom: 30px;
+    @include max-screen(425px) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
   .ui-tabs-tab {
     background-color: transparent;
@@ -25,6 +30,9 @@
     border: none;
     border-right: 1px solid #e1e1e1;
     transform: skewX(-25deg);
+    @include max-screen(425px) {
+      border-right: none;
+    }
     &:hover {
       a {
         color: $black_color !important;
@@ -38,6 +46,9 @@
     transform: skewX(25deg);
     padding: 10px 17px !important;
     transition: .3s;
+    @include max-screen(425px) {
+      font-size: 16px;
+    }
   }
   .ui-state-default {
     a {
@@ -52,14 +63,34 @@
   .ui-tabs-panel {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
     padding: 0;
+    @include max-screen(425px) {
+      flex-direction: column;
+    }
+    .row {
+      margin: 0 15px;
+      &:first-of-type {
+        margin-left: 0;
+      }
+      &:last-of-type {
+        margin-right: 0;
+      }
+      @include max-screen(768px) {
+        margin: 0 7.5px;
+      }
+      @include max-screen(425px) {
+        margin: 0;
+      }
+    }
     span {
       position: relative;
       display: block;
       margin-bottom: 30px;
       transition: .5s ease-in-out;
       background-color: rgba(0, 0, 0, 0.84);
+      @include max-screen(768px) {
+        margin-bottom: 15px;
+      }
       &:before {
         content: "";
         position: absolute;

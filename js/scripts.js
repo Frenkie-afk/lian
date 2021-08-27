@@ -3,9 +3,10 @@ $(document).ready(function(){
     $('.owl-carousel').owlCarousel({
         loop:true,
         margin:0,
+        autoHeight: true,
         nav:true,
         navText: [ '', ' ' ],
-        autoplay:true,
+        autoplay:false,
         autoplayTimeout:3500,
         autoplayHoverPause:true,
         autoplaySpeed:1000,
@@ -13,7 +14,19 @@ $(document).ready(function(){
         dotsSpeed: 1000,
         responsive:{
             0:{
-                items:1
+                items:1,
+                dots:true,
+                nav: false
+            },
+            425: {
+                items:1,
+                dots:true,
+                nav: false
+            },
+            768: {
+                items:1,
+                dots:true,
+                nav: true
             },
             1000:{
                 items:1
@@ -47,4 +60,11 @@ $(document).ready(function(){
             $( "#dialog" ).dialog( "open" );
         });
     } );
+
+    //click-active
+    $('.burger').click(function(){
+        $('.burger, .nav-menu').toggleClass('active');
+        $('body').toggleClass('lock');
+    });
+
 });
