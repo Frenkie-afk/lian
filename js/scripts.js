@@ -36,7 +36,16 @@ $(document).ready(function(){
 
     //tabs
     $( function() {
-        $( "#tabs" ).tabs();
+        $( "#tabs" ).tabs({
+            hide: {
+                effect: "scale",
+                duration: 200
+            },
+            show: {
+                effect: "scale",
+                duration: 200
+            },
+        });
     } );
 
     //dialog

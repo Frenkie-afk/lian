@@ -114,7 +114,7 @@ header .container .menu .search:hover, header .container .menu #dialog form butt
   color: black;
   transform: scale(1.2);
 }
-header .container .menu .search:before, header .container .menu .gallery .ui-tabs-panel span.search:after, .gallery .ui-tabs-panel header .container .menu span.search:after, header .container .menu #dialog form button:before, #dialog form header .container .menu button:before {
+header .container .menu .search:before, header .container .menu .gallery .ui-tabs-panel .search.gallery-item:after, .gallery .ui-tabs-panel header .container .menu .search.gallery-item:after, header .container .menu #dialog form button:before, header .container .menu #dialog form .gallery .ui-tabs-panel button.gallery-item:after, .gallery .ui-tabs-panel header .container .menu #dialog form button.gallery-item:after, #dialog form header .container .menu button:before, #dialog form header .container .menu .gallery .ui-tabs-panel button.gallery-item:after, .gallery .ui-tabs-panel #dialog form header .container .menu button.gallery-item:after {
   content: "";
   font-weight: 900;
   font-family: "Font Awesome 5 Free", sans-serif;
@@ -179,20 +179,6 @@ header .container nav ul li:hover a {
 }
 header .container nav ul li:first-child {
   animation: nav-bar 1s;
-}
-header .container nav ul li:first-child:before {
-  content: "";
-  display: inline-block;
-  background-color: black;
-  height: 1px;
-  width: 20px;
-  margin: 5px 20px 5px;
-  transition: 0.3s linear;
-}
-@media screen and (max-width: 768px) {
-  header .container nav ul li:first-child:before {
-    display: none;
-  }
 }
 header .container nav ul li:nth-child(2) {
   animation: nav-bar 1.2s;
@@ -424,7 +410,7 @@ header .burger.active span:last-of-type {
   border: none;
   cursor: pointer;
 }
-#dialog form button:before {
+#dialog form button:before, #dialog form .gallery .ui-tabs-panel button.gallery-item:after, .gallery .ui-tabs-panel #dialog form button.gallery-item:after {
   color: white;
   font-size: 36px;
   content: "";
@@ -432,22 +418,22 @@ header .burger.active span:last-of-type {
   font-family: "Font Awesome 5 Free";
 }
 @media screen and (max-width: 1024px) {
-  #dialog form button:before {
+  #dialog form button:before, #dialog form .gallery .ui-tabs-panel button.gallery-item:after, .gallery .ui-tabs-panel #dialog form button.gallery-item:after {
     font-size: 30px;
   }
 }
 @media screen and (max-width: 768px) {
-  #dialog form button:before {
+  #dialog form button:before, #dialog form .gallery .ui-tabs-panel button.gallery-item:after, .gallery .ui-tabs-panel #dialog form button.gallery-item:after {
     font-size: 26px;
   }
 }
 @media screen and (max-width: 425px) {
-  #dialog form button:before {
+  #dialog form button:before, #dialog form .gallery .ui-tabs-panel button.gallery-item:after, .gallery .ui-tabs-panel #dialog form button.gallery-item:after {
     font-size: 20px;
   }
 }
 @media screen and (max-width: 320px) {
-  #dialog form button:before {
+  #dialog form button:before, #dialog form .gallery .ui-tabs-panel button.gallery-item:after, .gallery .ui-tabs-panel #dialog form button.gallery-item:after {
     font-size: 18px;
   }
 }
@@ -501,7 +487,7 @@ header .burger.active span:last-of-type {
     border: none !important;
   }
 }
-.carousel .owl-nav .owl-prev:before, .carousel .owl-nav .gallery .ui-tabs-panel span.owl-prev:after, .gallery .ui-tabs-panel .carousel .owl-nav span.owl-prev:after, .carousel .owl-nav .owl-next:before, .carousel .owl-nav .gallery .ui-tabs-panel span.owl-next:after, .gallery .ui-tabs-panel .carousel .owl-nav span.owl-next:after {
+.carousel .owl-nav .owl-prev:before, .carousel .owl-nav .gallery .ui-tabs-panel .owl-prev.gallery-item:after, .gallery .ui-tabs-panel .carousel .owl-nav .owl-prev.gallery-item:after, .carousel .owl-nav .owl-next:before, .carousel .owl-nav .gallery .ui-tabs-panel .owl-next.gallery-item:after, .gallery .ui-tabs-panel .carousel .owl-nav .owl-next.gallery-item:after {
   content: "";
   font-weight: 900;
   font-family: "Font Awesome 5 Free", sans-serif;
@@ -517,7 +503,7 @@ header .burger.active span:last-of-type {
     right: 1%;
   }
 }
-.carousel .owl-nav .owl-next:before, .carousel .owl-nav .gallery .ui-tabs-panel span.owl-next:after, .gallery .ui-tabs-panel .carousel .owl-nav span.owl-next:after {
+.carousel .owl-nav .owl-next:before, .carousel .owl-nav .gallery .ui-tabs-panel .owl-next.gallery-item:after, .gallery .ui-tabs-panel .carousel .owl-nav .owl-next.gallery-item:after {
   content: "";
 }
 .carousel .owl-nav button {
@@ -749,19 +735,19 @@ header .burger.active span:last-of-type {
     margin: 0;
   }
 }
-.gallery .ui-tabs-panel span {
+.gallery .ui-tabs-panel .gallery-item {
   position: relative;
-  display: block;
   margin-bottom: 30px;
-  transition: 0.5s ease-in-out;
+  transition: 0.5s;
   background-color: rgba(0, 0, 0, 0.84);
+  overflow: hidden;
 }
 @media screen and (max-width: 768px) {
-  .gallery .ui-tabs-panel span {
+  .gallery .ui-tabs-panel .gallery-item {
     margin-bottom: 15px;
   }
 }
-.gallery .ui-tabs-panel span:before, .gallery .ui-tabs-panel span:after {
+.gallery .ui-tabs-panel .gallery-item:before, .gallery .ui-tabs-panel .gallery-item:after {
   content: "";
   position: absolute;
   display: block;
@@ -773,15 +759,16 @@ header .burger.active span:last-of-type {
   transform: scale(0) translate(-50%, -50%);
   transition: 0.2s 0s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
-.gallery .ui-tabs-panel span:after {
+.gallery .ui-tabs-panel .gallery-item:after {
   height: 40px;
   width: 2px;
 }
-.gallery .ui-tabs-panel span:hover:before, .gallery .ui-tabs-panel span:hover:after {
+.gallery .ui-tabs-panel .gallery-item:hover:before, .gallery .ui-tabs-panel .gallery-item:hover:after {
   transform: scale(1) translate(-50%, -50%);
   transition: 0.3s 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.gallery .ui-tabs-panel span:hover img {
+.gallery .ui-tabs-panel .gallery-item:hover img {
+  transform: scale(1.2);
   opacity: 30%;
 }
 .gallery .btn {
@@ -866,7 +853,7 @@ footer .copyright a {
 img {
   display: block;
   width: 100%;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
 body {

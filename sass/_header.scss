@@ -118,18 +118,18 @@ header {
           }
           &:first-child {
             animation: nav-bar 1s;
-            &:before {
-              content: "";
-              display: inline-block;
-              background-color: $black_color;
-              height: 1px;
-              width: 20px;
-              margin: 5px 20px 5px;
-              transition: .3s linear;
-              @include max-screen(768px) {
-                display: none;
-              }
-            }
+            //&:before {
+            //  content: "";
+            //  display: inline-block;
+            //  background-color: $black_color;
+            //  height: 1px;
+            //  width: 20px;
+            //  margin: 5px 20px 5px;
+            //  transition: .3s linear;
+            //  @include max-screen(768px) {
+            //    display: none;
+            //  }
+            //}
           }
           &:nth-child(2) {
             animation: nav-bar 1.2s;
