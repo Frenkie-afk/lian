@@ -1,8 +1,8 @@
 footer {
   padding: 64px 0 45px;
   text-align: center;
-  -webkit-box-shadow: 0 2px 7px 1px #b5babd;
-  box-shadow: 0 2px 7px 1px #b5babd;
+  -webkit-box-shadow: 0 2px 7px 1px rgb(0 0 0 / 10%);
+  box-shadow: 0 2px 7px 1px rgb(0 0 0 / 10%);
   @include max-screen(425px) {
     padding: 40px 0 25px;
   }
@@ -31,7 +31,7 @@ footer {
       font-size: 14px;
       transition: .3s;
       @include max-screen(425px) {
-        margin: 0 10px;
+        margin: 0 14px;
       }
       &:hover {
         transform: translateY(-15%);

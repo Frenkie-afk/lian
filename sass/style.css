@@ -47,8 +47,8 @@ header {
   position: relative;
   z-index: 2;
   padding: 27px 0;
-  -webkit-box-shadow: 0 2px 3px 2px #b5babd;
-  box-shadow: 0 2px 3px 2px #b5babd;
+  -webkit-box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.1);
 }
 @media screen and (max-width: 768px) {
   header {
@@ -130,9 +130,10 @@ header .container nav {
     background-color: white;
     height: 100%;
     width: 100%;
-    z-index: 3;
+    z-index: -1;
     left: 100%;
-    top: 50px;
+    top: 0;
+    padding: 50px 0;
     transition: 0.2s ease-in-out;
   }
 }
@@ -790,8 +791,8 @@ header .burger.active span:last-of-type {
 footer {
   padding: 64px 0 45px;
   text-align: center;
-  -webkit-box-shadow: 0 2px 7px 1px #b5babd;
-  box-shadow: 0 2px 7px 1px #b5babd;
+  -webkit-box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.1);
 }
 @media screen and (max-width: 425px) {
   footer {
@@ -828,7 +829,7 @@ footer .socials a {
 }
 @media screen and (max-width: 425px) {
   footer .socials a {
-    margin: 0 10px;
+    margin: 0 14px;
   }
 }
 footer .socials a:hover {
