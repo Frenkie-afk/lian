@@ -26,7 +26,14 @@ header {
       -moz-animation-duration: 1s;
       -o-animation-duration: 1s;
       animation-duration: 1s;
+      &:hover {
+        img {
+          opacity: .5;
+
+        }
+      }
       img {
+        transition: .3s;
         @include max-screen(768px) {
           width: 110px;
         }

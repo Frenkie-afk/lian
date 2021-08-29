@@ -9,7 +9,13 @@ footer {
   .logo{
     display: inline-block;
     margin-bottom: 44px;
+    &:hover {
+      img {
+        opacity: .5;
+      }
+    }
     img {
+      transition: .3s;
       @include max-screen(768px) {
         width: 110px;
       }
